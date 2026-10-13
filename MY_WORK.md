@@ -33,7 +33,7 @@
 | **Student ID** | 446052720 |
 | **University Email** | 446052720@std.psau.edu.sa |
 | **GitHub Username** | abdelrahman-marwan-hub |
-| **Repository Link** | https://github.com/abdelrahman-marwan-hub/OS-Assignment1-Abdelrahman-nourldin |
+| **Repository Link** | https://github.com/abdelrahman-marwan-hub/OS-Assignment1-Abdelrahman-nourldin.git |
  
 ---
 
