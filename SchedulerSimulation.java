@@ -1,4 +1,5 @@
 
+
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Map;
@@ -152,6 +153,8 @@ class Process implements Runnable {
 }
 
 public class SchedulerSimulation {
+    static int contextSwitchCount = 0;
+
     public static void main(String[] args) {
         // ⚠️ IMPORTANT: Put your student ID here to seed the random number generator
         // This makes your output unique to you - DO NOT forget to change this!
@@ -247,6 +250,7 @@ public class SchedulerSimulation {
             System.out.println(Colors.BOLD + Colors.MAGENTA + "└" + "─".repeat(79) + Colors.RESET + "\n");
 
             // Start the thread, which will run the process for one time quantum
+            contextSwitchCount++;
             currentThread.start();
 
             try {
@@ -270,6 +274,7 @@ public class SchedulerSimulation {
                     System.out.println(Colors.BRIGHT_YELLOW + "  ⚠ " + Colors.CYAN + process.getName() +
                                       Colors.RESET + Colors.YELLOW + " is the last process → running to completion" +
                                       Colors.RESET);
+                    contextSwitchCount++;
                     process.runToCompletion(); // Run until the process completes
                 }
             }
@@ -286,6 +291,9 @@ public class SchedulerSimulation {
         System.out.println(Colors.BOLD + Colors.BRIGHT_GREEN +
                           "╚════════════════════════════════════════════════════════════════════════════════╝" +
                           Colors.RESET + "\n");
+
+        System.out.println(Colors.BOLD + Colors.BRIGHT_CYAN +
+                          "Total Context Switches: " + contextSwitchCount + Colors.RESET);
     }
 
     // Method to add a process to the queue and map, while printing a "ready" message
