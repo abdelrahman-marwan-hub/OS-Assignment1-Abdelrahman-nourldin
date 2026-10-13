@@ -29,11 +29,11 @@
 
 | Field | Your Answer |
 |-------|-------------|
-| **Full Name** | [Write your full name here] |
-| **Student ID** | [Write your student ID here] |
-| **University Email** | [yourid]@std.psau.edu.sa |
-| **GitHub Username** | [your-github-username] |
-| **Repository Link** | [Paste your repository link here] |
+| **Full Name** | abdelrahman marwan moustafa noureldin |
+| **Student ID** | 446052720 |
+| **University Email** | 446052720@std.psau.edu.sa |
+| **GitHub Username** | abdelrahman-marwan-hub |
+| **Repository Link** | https://github.com/abdelrahman-marwan-hub/OS-Assignment1-Abdelrahman-nourldin |
  
 ---
 
