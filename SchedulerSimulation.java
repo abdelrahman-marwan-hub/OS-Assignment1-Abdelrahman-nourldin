@@ -314,7 +314,7 @@ public class SchedulerSimulation {
                     System.out.println(Colors.BRIGHT_YELLOW + "  ⚠ " + Colors.CYAN + process.getName() +
                                       Colors.RESET + Colors.YELLOW + " is the last process → running to completion" +
                                       Colors.RESET);
-                    contextSwitchCount++;
+                    
                     process.runToCompletion();
                 }
             }
