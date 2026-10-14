@@ -129,68 +129,98 @@
 
 ## Your Development Log
 
-### Entry 1 - [Date and Time]
-**What I did**:
+### Entry 1 - [October 13, 2026, 5:00 AM]
+**What I did**: set up GitHub, read the assignment, and set my student ID
 
 **Details**:
+created my GitHub account with my university email.
+forked the starter repository and renamed it.
+read the README.md and the assignment PDF.
+made a simple plan for the three features.
+changed the student ID in the code to 446052720
+committed and pushed: Set my student ID: 446052720
 
-**Challenges**:
+**Challenges**: There were many instructions, so it was hard to know where to start
 
-**Solution**:
-
-**Time spent**:
+**Solution**: I wrote a short list of the tasks and did them in order
+**Time spent**: 2 hours 
 
 ---
 
-### Entry 2 - [Date and Time]
-**What I did**:
+### Entry 2 - [October 13, 2026, 7:00 AM ]
+**What I did**: Added Feature 1 (priority) and Feature 2 (context switch counter)
 
-**Details**:
+**Details**: feature 1: added a priority field and a getPriority() method to the Process class
+feature 1: made a random priority from 1 to 10 with 1 + random.nextInt(10)
+feature 1: showed the priority in addProcessToQueue() and in the ready queue print
 
-**Challenges**:
+feature 2: added static int contextSwitchCount in SchedulerSimulation
+feature 2: added contextSwitchCount++ before currentThread.start()
+feature 2: printed "total context switches" at the end
+made one commit for each feature
 
-**Solution**:
+**Challenges**:my first counter gave 19 and not 20, because i only counted when the process changed
 
-**Time spent**:
+**Solution**:: i read the README.md again. it says to count each time a process starts running, so i count every Thread.start() now
 
----
-
-### Entry 3 - [Date and Time]
-**What I did**:
-
-**Details**:
-
-**Challenges**:
-
-**Solution**:
-
-**Time spent**:
+**Time spent**: 3 hours
 
 ---
 
-### Entry 4 - [Date and Time]
-**What I did**:
+### Entry 3 - [october 13, 2026, 1:00 pm]
+**What I did**: added feature 3 (waiting time tracking and summary table)
 
-**Details**:
+**Details**: added readyQueueEntryTime and totalWaitingTime to the Process class
+wrote markReady(), recordWaitingTime(), getWaitingTime() and getTurnaroundTime()
+called markReady() in addProcessToQueue()
+called recordWaitingTime() right after processQueue.poll()
 
-**Challenges**:
+added a list called allProcesses to keep every process
+printed a table with burst time, waiting time and turnaround time using printf
+checked that turnaround time is equal to waiting time plus burst time
 
-**Solution**:
+**Challenges**:this was the hardest part for me. i did not know when a process starts and stops waiting. at first i put the calculation inside run(), and the numbers were not correct
 
-**Time spent**:
+**Solution**: i moved it to the scheduler loop, after poll(), because that is when the process leaves the queue. a process can wait many times, so i add each wait to the total
+
+**Time spent**: 4 hours
 
 ---
 
-### Entry 5 - [Date and Time]
-**What I did**:
+### Entry 4 - [october 14, 2026, 4:00 pm]
+**What I did**: completed part a, part b and part c in MY_WORK.md
 
 **Details**:
+wrote the development log
+answered the 4 reflection questions
+answered the 4 technical questions
+used my own program output (p4 was re-queued 2 times) for the ready queue question
+checked my answers against my final code
+committed and pushed the file to github
 
-**Challenges**:
+**Challenges**: it was hard to explain the thread states in simple english
 
-**Solution**:
+**Solution**: i followed p1 in the code step by step: new Thread(), start(), sleep(), join()
 
-**Time spent**:
+**Time spent**: 4 and half hours 
+
+---
+
+### Entry 5 - [october 14, 2026, 9:00 pm]
+**What I did**: record the demo video and submit the assignment
+
+**Details**: 
+recorded a 2 to 3 minute video with my screen and voice
+showed my name, student ID, repository, the three features, the run in VS code, and the commit history
+explained Thread.join() in my own words
+uploaded the video and put the public link in MY_WORK.md
+submitted the repository link on blackboard
+
+**Challenges**:  i was nervous while recording the video, and it was hard to explain all the features within the time limit.
+
+**Solution**:i prepared a short outline before recording and practiced explaining the main features. this helped me speak more clearly and finish the video on time.
+
+**Time spent**: 1 and half hour 
 
 ---
 
@@ -211,13 +241,13 @@
 
 > 💡 **TIP:** Fill this in **last**, after all entries are written.
 
-**Total time spent on assignment**: [X hours]
+**Total time spent on assignment**: [15 hours]
 
-**Most challenging part**:
+**Most challenging part**: the waiting time tracking 
 
-**Most interesting learning**:
+**Most interesting learning**: Thread.join() makes the main thread wait, so only one process runs at a time
 
-**What I would do differently next time**:
+**What I would do differently next time**: Start earlier, commit more often, and write the log after each work session
 
 ---
 
@@ -237,7 +267,7 @@
 
 **Your Answer:** *(5-7 sentences)*
 
-[Write your answer here.]
+i learned how to run code in a separate thread using the Runnable interface. when i call Thread.start(), the run() method of the process starts in a new thread. Thread.join() makes the main thread wait until the process finishes its quantum. Thread.sleep() is used to pretend that the process is using the cpu. i was surprised that a thread cannot start twice, so i create a new Thread each time a process goes back to the queue.
 
 ## Question 2: What was the most challenging part of this assignment?
 
@@ -245,7 +275,7 @@
 
 **Your Answer:** *(5-7 sentences)*
 
-[Write your answer here.]
+the hardest part was feature 3, the waiting time. i had to decide when a process starts waiting and when it stops waiting. at first i put the calculation inside run(), but the right place is after processQueue.poll(). a process can wait many times, so i add each wait to totalWaitingTime . also, my context switch count was 19 at first, and i fixed it to 20.
 
 ## Question 3: How did you overcome the challenges you faced?
 
@@ -253,7 +283,7 @@
 
 **Your Answer:** *(5-7 sentences)*
 
-[Write your answer here.]
+i tested after every small change by running the program in vs code. i read the readme again and followed it exactly, so the counter now counts every Thread.start(). to check feature3, i maنe sure that turnaround time is equal to waiting time plus burst time. i also saw that p3 has the smallest waiting time, so the result made sense. i made a separate commit for each feature, so it was easy to find problems.
 
 ## Question 4: How can you apply multithreading concepts in real-world applications?
 
@@ -261,7 +291,7 @@
 
 **Your Answer:** *(5-7 sentences)*
 
-[Write your answer here.]
+a web browser uses threads for tabs and downloads, so one slow page does not freeze everything. a music player plays a song in one thread and loads the next song in another thread. in a game, one thread draws the screen and another thread handles the player's input. an operating system works like my simulation: each program gets a small time quantum, and then the cpu switches to the next one.
 
 ### Optional: What would you like to learn more about?
 
@@ -293,7 +323,7 @@
 
 **Your Answer:** *(3-5 sentences)*
 
-[Write your answer here.]
+a process is a running program with its own memory, and a thread is a smaller part inside a process that shares its memory. first, my threads share processQueue  and contextSwitchCount, but separate processes would not share memory. second, creating a thread with new Thread(process) in addProcessToQueue() is faster and lighter than creating a new process. 
 
 ## Question 2: Ready Queue Behavior
 
@@ -305,15 +335,26 @@
 
 **Your Answer:** *(3-5 sentences)*
 
-[Write your answer here.]
+when a process does not finish in its time quantum, it goes to the end of the ready queue. in my output, p4 has a burst time of 4288ms and the quantum is 2000ms, so it was re-queued 2 times and finished in its third turn. this is fair because no process keeps the cpu for a long time..
 
 Example from my output:
 ```
-[Paste a relevant snippet from your program output here showing a process being re-queued]
+⏸ P4 completed quantum 2000ms
+  Remaining time: 2288ms
+↻ P4 yields CPU for context switch
+
+➕ P4 added to ready queue
+...
+(same again with 288ms remaining)
+...
+▶️ P4 executing quantum [288ms]
+✓ P4 finished execution!
+
 ```
 
 **Explanation of example:**
-[Explain what is happening in the output snippet you pasted.]
+
+P4 used its full 2000ms but still had time left, so it yielded the CPU and was added to the queue again. This happened two times, and in the third turn P4 ran only 288ms and finished.
 
 ## Question 3: Thread Lifecycle
 
@@ -323,15 +364,16 @@ Example from my output:
 
 **Your Answer:** *(3-5 sentences overall; one short explanation per state)*
 
-1. **New**: [When is P1 in the New state?]
+1. **New**: P1 is New when new Thread(process) is created in addProcessToQueue()
 
-2. **Runnable**: [When does P1 become Runnable?]
+2. **Runnable**: P1 becomes Runnable when the main thread calls currentThread.start().
 
-3. **Running**: [When is P1 Running?]
+3. **Running**: P1 is Running when its run() method is executing.
 
-4. **Waiting**: [When and why would a thread be Waiting?]
+4. **Waiting**: P1 enters the TIMED_WAITING state when it calls Thread.sleep(), while the main thread waits for P1 to finish when it calls currentThread.join().
 
-5. **Terminated**: [When is P1 Terminated?]
+
+5. **Terminated**: the thread finishes when its run() method ends.
 
 ## Question 4: Real-World Applications
 
@@ -341,32 +383,32 @@ Example from my output:
 
 **Your Answer:** *(3-5 sentences per example)*
 
-### Example 1 (operating-system level): [Name of scenario]
+### Example 1 (operating-system level): [CPU Scheduling]
 
 **Description**:
-[Describe the real-world scenario.]
+the os runs many programs, but the cpu has only a few cores, so it gives each program a small time slice and then switches. in my simulation, the process is the program, the time quantum is the time slice, and the context switch is the change to the next program.
 
 **Why Round-Robin works well here**:
-[Fairness, responsiveness, predictability?]
+it is fair because every program gets the same time slice. it is responsive because no program waits too long, so the computer does not look frozen.
 
-### Example 2: [Name of application/scenario]
+### Example 2: [web server handling many requests]
 
 **Description**:
-[Describe the real-world scenario or application.]
+a web server gets many requests from many users at the same time. each request gets a short turn on a thread, like a process in my simulation.
 
 **Why Round-Robin works well here**:
-[Fairness, responsiveness, predictability?]
+short requests do not wait for a long request, so users get fast answers. it is also fair because every request gets a turn.
 
 ## Summary
 
 **Key concepts I understood through these questions:**
-1.
-2.
-3.
+1.ohw Thread.start(), Thread.join() and Thread.sleep() work together.
+2.how Round-Robin works with a time quantum and the ready queue.
+3. how to calculate context switches, waiting time and turnaround time.
 
 **Concepts I need to study more:**
-1.
-2.
+1.thread synchronization (locks).
+2.other scheduling algorithms, like priority scheduling.
 
 ---
 
